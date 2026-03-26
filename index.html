@@ -2,631 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ironshore AI</title>
-  <meta
-    name="description"
-    content="Ironshore AI helps businesses turn artificial intelligence into practical advantage through strategy, integration, automation, and implementation."
-  />
+
   <style>
-    :root {
-      --bg: #08111f;
-      --bg-soft: #0f1b2d;
-      --panel: rgba(255,255,255,0.06);
-      --panel-border: rgba(255,255,255,0.12);
-      --text: #f3f7fb;
-      --muted: #b9c6d8;
-      --accent: #7dc3ff;
-      --accent-strong: #b7e1ff;
-      --shadow: 0 20px 50px rgba(0,0,0,0.28);
-      --max: 1160px;
-      --radius: 22px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(76, 143, 255, 0.18), transparent 30%),
-        radial-gradient(circle at top left, rgba(54, 171, 255, 0.14), transparent 25%),
-        linear-gradient(180deg, #08111f 0%, #091523 45%, #07101b 100%);
-      color: var(--text);
+      font-family: Arial, sans-serif;
+      background: #0b0f1a;
+      color: white;
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(5, 12, 22, 0.64);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 76px;
-      gap: 20px;
-    }
-
-    .brand {
-      font-size: 1.3rem;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .brand span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.96rem;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #8fd2ff, #65aef3);
-      color: #04111e;
-      box-shadow: 0 10px 30px rgba(109, 180, 245, 0.26);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.12);
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
     }
 
     .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 88px 0 72px;
+      text-align: center;
+      padding: 100px 20px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
-      align-items: center;
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
     }
 
-    .eyebrow {
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    .cta-button {
       display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(125, 195, 255, 0.12);
-      color: var(--accent-strong);
-      border: 1px solid rgba(125, 195, 255, 0.18);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.03em;
-      margin-bottom: 18px;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: #4da3ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
     }
 
-    .hero h1 {
-      font-size: clamp(2.6rem, 5vw, 5rem);
-      line-height: 1.04;
-      margin: 0 0 18px;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p.lead {
-      font-size: 1.16rem;
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 0 26px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 26px;
-    }
-
-    .hero-points {
+    .services {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .hero-point {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 18px;
-      padding: 16px 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .hero-visual {
-      min-height: 520px;
-      border-radius: 30px;
-      overflow: hidden;
-      position: relative;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: var(--shadow);
-      background:
-        linear-gradient(180deg, rgba(6,14,24,0.2), rgba(6,14,24,0.6)),
-        url("ironshore-hero.jpg") center center / cover no-repeat,
-        linear-gradient(135deg, #10233b, #091321);
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(125,195,255,0.28), transparent 22%),
-        linear-gradient(180deg, rgba(7,17,31,0.05), rgba(7,17,31,0.45));
-      pointer-events: none;
-    }
-
-    .hero-card {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
-      padding: 20px 20px;
-      border-radius: 22px;
-      background: rgba(8, 17, 31, 0.72);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-card-title {
-      font-size: 0.92rem;
-      color: var(--accent-strong);
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .hero-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    section {
-      padding: 44px 0;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 2.6vw, 3rem);
-      line-height: 1.1;
-      margin: 0 0 12px;
-      letter-spacing: -0.025em;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      max-width: 800px;
-      margin: 0 0 28px;
-      font-size: 1.04rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+    .service {
+      background: #111827;
+      padding: 20px;
+      border-radius: 8px;
     }
 
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.18rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .card ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .process-step {
-      position: relative;
-      padding-top: 8px;
-    }
-
-    .process-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(125, 195, 255, 0.16);
-      color: var(--accent-strong);
-      font-weight: 800;
-      margin-bottom: 14px;
-      border: 1px solid rgba(125,195,255,0.18);
-    }
-
-    .quote {
-      font-size: 1.35rem;
-      line-height: 1.45;
-      color: var(--text);
-      margin: 0;
-    }
-
-    .quote-sub {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .cta {
-      margin: 24px 0 70px;
-    }
-
-    .cta-wrap {
-      padding: 34px;
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(143, 210, 255, 0.14), rgba(101, 174, 243, 0.08)),
-        rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow);
-    }
-
-    .cta-wrap p {
-      color: var(--muted);
-      max-width: 760px;
-    }
-
-    .footer {
-      padding: 28px 0 48px;
-      color: #91a2b8;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .footer a {
-      color: #c4d2e3;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2,
-      .hero-points {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 64px;
-      }
-
-      .hero-visual {
-        min-height: 420px;
-      }
-
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 14px 0;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-
-      .hero p.lead,
-      .section-copy,
-      .card p,
-      .card ul {
-        font-size: 0.98rem;
-      }
-
-      .cta-wrap,
-      .card {
-        padding: 20px;
-      }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="brand">IRONSHORE<span>.AI</span></a>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#who">Who We Help</a>
-        <a href="#contact">Contact</a>
-        <a class="btn btn-secondary" href="mailto:hello@ironshore.ai">Email</a>
-      </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>From data currents to smart decisions.</h1>
+    <p>
+      Ironshore AI helps businesses integrate artificial intelligence into real workflows —
+      fast, practical, and scalable.
+    </p>
+    <a href="#contact" class="cta-button">Get Started</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="container">
+    <h2>What We Do</h2>
+    <p>
+      We help companies move beyond AI hype and actually implement solutions that work.
+      From automation to decision systems, we design and build AI that fits your business —
+      not the other way around.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="container">
+    <h2>Services</h2>
+
+    <div class="services">
+
+      <div class="service">
+        <h3>AI Integration</h3>
+        <p>Embed AI into your workflows, tools, and operations.</p>
+      </div>
+
+      <div class="service">
+        <h3>Automation</h3>
+        <p>Reduce manual work through intelligent system design.</p>
+      </div>
+
+      <div class="service">
+        <h3>Advisory</h3>
+        <p>Clear, practical guidance on adopting AI without overengineering.</p>
+      </div>
+
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Practical AI for real businesses</div>
-          <h1>Turn AI into real business capability.</h1>
-          <p class="lead">
-            Ironshore AI helps organizations move from curiosity and experimentation to practical implementation —
-            with AI strategy, workflow design, automation, integration, and hands-on delivery.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@ironshore.ai">Start a Conversation</a>
-            <a class="btn btn-secondary" href="#services">Explore Services</a>
-          </div>
-          <div class="hero-points">
-            <div class="hero-point">AI strategy grounded in business reality</div>
-            <div class="hero-point">Implementation focused on speed, clarity, and ROI</div>
-            <div class="hero-point">Flexible across platforms, tools, and budgets</div>
-          </div>
-        </div>
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <p>Reach out to start a conversation.</p>
 
-        <div class="hero-visual">
-          <div class="hero-card">
-            <div class="hero-card-title">Ironshore AI</div>
-            <p>
-              From opportunity assessment to deployment, we help businesses adopt AI in ways that are usable,
-              scalable, and economically sane.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <a href="mailto:hello@ironshore.ai" class="cta-button">
+      hello@ironshore.ai
+    </a>
+  </section>
 
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title">What we help businesses do</h2>
-        <p class="section-copy">
-          Whether you are exploring AI for the first time or trying to move beyond scattered tools and hype,
-          we help translate possibilities into systems, workflows, and outcomes that matter.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>AI Strategy</h3>
-            <p>
-              Identify where AI can create real value in your business, prioritize use cases, and avoid wasting time
-              on flashy but low-impact ideas.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Workflow Automation</h3>
-            <p>
-              Redesign repetitive work with AI-assisted processes that save time, improve consistency, and reduce friction.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Implementation Support</h3>
-            <p>
-              Help with selecting tools, connecting systems, structuring data, and building practical solutions that fit
-              your team and budget.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>AI Integration</h3>
-            <p>
-              Connect AI into existing business operations, software, and data flows so it becomes part of how work actually gets done.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Advisory for Small and Mid-Sized Businesses</h3>
-            <p>
-              Cut through noise and vendor pressure with independent guidance on the best path forward for your business.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Custom AI Solutions</h3>
-            <p>
-              Build tailored approaches for organizations that need something more thoughtful than a generic chatbot dropped on top of messy processes.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="approach">
-      <div class="container">
-        <h2 class="section-title">A practical approach to adoption</h2>
-        <p class="section-copy">
-          Good AI work starts with business clarity, not hype. The goal is not to “use AI” for its own sake —
-          it is to create leverage, better decisions, stronger operations, and real advantage.
-        </p>
-
-        <div class="grid-2">
-          <div class="card process-step">
-            <div class="process-number">1</div>
-            <h3>Assess the opportunity</h3>
-            <p>
-              Understand your workflows, pain points, goals, and data realities. Find the highest-value entry points.
-            </p>
-          </div>
-
-          <div class="card process-step">
-            <div class="process-number">2</div>
-            <h3>Design the right solution</h3>
-            <p>
-              Choose the right level of sophistication — from lightweight tools to more robust systems — without overspending.
-            </p>
-          </div>
-
-          <div class="card process-step">
-            <div class="process-number">3</div>
-            <h3>Implement with discipline</h3>
-            <p>
-              Build and connect the solution in a way your business can actually use, maintain, and grow from.
-            </p>
-          </div>
-
-          <div class="card process-step">
-            <div class="process-number">4</div>
-            <h3>Refine and expand</h3>
-            <p>
-              Measure what works, improve the workflow, and scale intelligently instead of creating AI clutter.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="who">
-      <div class="container">
-        <h2 class="section-title">Who Ironshore AI is built for</h2>
-        <p class="section-copy">
-          We work best with organizations that want clear thinking, practical execution, and a partner who understands both the promise and the messiness of implementation.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Small businesses</h3>
-            <p>
-              Businesses that want to use AI to save time, improve customer experience, or modernize operations without taking on enterprise-level cost.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Mid-sized companies</h3>
-            <p>
-              Teams that have real complexity and real opportunity, but need help sorting through tools, priorities, and architecture.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Leaders exploring what’s next</h3>
-            <p>
-              Founders, operators, and decision-makers who know AI matters, but want a grounded way to move forward.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="card">
-          <p class="quote">
-            AI should not be another expensive layer of confusion. It should make the business sharper, faster, and more capable.
-          </p>
-          <div class="quote-sub">That is the standard Ironshore AI is built around.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <div class="container">
-        <div class="cta-wrap">
-          <h2 class="section-title">Let’s build something useful</h2>
-          <p>
-            If you are thinking about how AI could help your business — or you are already trying and want a clearer, smarter path —
-            let’s talk.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@ironshore.ai">Email Ironshore AI</a>
-            <a class="btn btn-secondary" href="mailto:hello@ironshore.ai?subject=Ironshore%20AI%20Inquiry">Start an inquiry</a>
-          </div>
-          <p style="margin-top: 16px; color: var(--muted);">
-            Temporary contact: replace <strong>hello@ironshore.ai</strong> once your business email is configured.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-row">
-      <div>© 2026 Ironshore AI. All rights reserved.</div>
-      <div><a href="mailto:hello@ironshore.ai">hello@ironshore.ai</a></div>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Ironshore AI LLC
   </footer>
+
 </body>
 </html>
